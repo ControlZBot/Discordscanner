@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: scraper-bot
+    env: python
+    region: Frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      DISCORD_TOKEN:
+        fromDatabase: false
+        value: YOUR_TOKEN_HERE_TEMP  # We'll override in Render
+    autoDeploy: true
